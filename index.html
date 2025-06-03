@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Tech - Legal Engineer</title>
+    <style>
+        @font-face {
+            font-family: 'Great';
+            src: url('great/great.ttf') format('truetype');
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: transparent;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+        #vanta-bg {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .card-container {
+            perspective: 1000px;
+        }
+        .content {
+            /* width: max(50vw, 200px); */
+            height: 300px;
+            /* position: relative; */
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+         .content.flipped {
+            transform: rotateY(180deg);
+        }
+        .content.vertical-flip {
+            transform: rotateX(380deg);
+        }
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border: 1px solid rgba(241, 241, 241, 0.02);
+        }
+        .front {
+            background: transparent;
+            color: DodgerBlue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .back {
+            color: #000;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+        }
+        .back.vertical {
+            transform: rotateX(180deg);
+        }
+        .back button {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: #4c73c0;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .back button:nth-child(2) {
+            background: #6c8bc0;
+        }
+      
+        .logo {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .logo h1 {
+            font-family: 'Great', Arial, sans-serif;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            font-size: 5vw;
+        }
+        .subtitle {
+            font-size: 1rem;
+            background-color: DodgerBlue;
+            color: white;
+            padding: 2px;
+            border-radius: 5px;
+            margin-left: 80px;
+            bottom: 60px;
+            position: relative;
+            left: 40px
+        }
+        #lottie {
+            width: 15vw;
+            height: 15vw;
+            position: absolute;
+            left: 140px;
+            z-index: 1;
+        }
+        .video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: transparent;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .whatsapp-button {
+            background-color: rgb(46, 19, 199);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: white;">
+    <div id="vanta-bg"></div>
+    <div class="card-container" style="width: min(90vw, 300px); position: fixed;">
+        <div class="content" id="card" style="cursor: pointer; background-color: transparent; display: flex; align-items: center;">
+            <div class="front" id="front" style=" display: flex; justify-content: center;">
+                <div id="logo" class="logo" style="align-self: center; background: transparent; display: flex; align-self:center; gap: 10px; align-items: center;position: relative">
+                    <img src="./pitech_logo.png" alt="Pi Tech Logo" style="width: 95%; height: 95%; object-fit: cover; border-radius: 16px; z-index: -1;">
+                </div>
+                <div id="video-ventas" style="display: none; position: relative;" class="back vertical">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Tx8B3Rl1WLE?si=rYYUodvnwOe9vpRg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                        <button class="whatsapp-button" onclick="window.open('https://wa.me/56930509306?text= Estoy interesado en Auditoría de Datos.', '_blank')">
+                            <i class="fab fa-whatsapp"></i> Contáctanos
+                        </button>                    
+                    </div>
+                </div>
+                <div id="video-operation" style="display: none; position: relative;" class="back vertical">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ZHouqJIPQJw?controls=0&showinfo=0&modestbranding=1&rel=0&cc_load_policy=3"></iframe>
+                        <button class="whatsapp-button" onclick="window.open('https://wa.me/56930509306?text= Estoy interesado en automatización en operación legal.', '_blank')">
+                            <i class="fab fa-whatsapp"></i> Contáctanos
+                        </button>                    </div>
+                </div>
+            </div>
+            <div class="back" id="back">
+                <button id="ventas-btn" style="z-index: 2;">Auditoría de Datos</button>
+                <button id="operation-btn" style="z-index: 2;">Automatización Operación Legal</button>
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.topology.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    
+    <script>
+        VANTA.TOPOLOGY({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x4c73c0,
+            backgroundColor: 0xffffff,
+            speed: 50.00
+        });
+
+        document.getElementById('card').addEventListener('click', function() {
+            this.classList.toggle('flipped');
+            localStorage.setItem('tooltipShown', 'true');
+        });
+
+        document.getElementById('ventas-btn').addEventListener('click', function() {
+            const video = document.getElementById('video-ventas');
+            video.style = "backface-visibility: visible;";
+            video.style = "transform: rotateX(0deg);";
+            const card = document.getElementById('card');
+            card.classList.toggle('vertical-flip');
+            const front = document.getElementById('front');
+            const back = document.getElementById('back');
+            const lottie = document.getElementById('lottie');
+            const logo = document.getElementById('logo');
+            video.style.display = 'flex';
+            back.style.display = 'none';
+            logo.style.display = 'none';
+            lottie.style.display = 'none';
+        });
+
+        document.getElementById('operation-btn').addEventListener('click', function() {
+            const video = document.getElementById('video-operation');
+            video.style = "backface-visibility: visible;";
+            video.style = "transform: rotateX(0deg);";
+            const card = document.getElementById('card');
+            card.classList.toggle('vertical-flip');
+            const front = document.getElementById('front');
+            const back = document.getElementById('back');
+            const lottie = document.getElementById('lottie');
+            const logo = document.getElementById('logo');
+            video.style.display = 'flex';
+            back.style.display = 'none';
+            logo.style.display = 'none';
+            lottie.style.display = 'none';
+        });
+
+        if (window.innerWidth <= 768 && !localStorage.getItem('tooltipShown')) {
+            const tooltip = tippy('#card', {
+                content: 'Haz click aquí',
+                trigger: 'manual',
+                onShow(instance) {
+                    setTimeout(() => {
+                        instance.hide();
+                    }, 1000);
+                },
+                onHidden(instance) {
+                    setTimeout(() => {
+                        if (window.innerWidth <= 768 && !localStorage.getItem('tooltipShown')) {
+                            instance.show();
+                        }
+                    }, 1000);
+                }
+            });
+
+            tooltip[0].show();
+        }
+    </script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</body>
+</html>
